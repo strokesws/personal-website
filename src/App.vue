@@ -1,30 +1,19 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </div>
+  <nav id="nav" class="p-4 flex justify-end">
+    <router-link to="/" class="p-4">Home</router-link>
+    <router-link to="/about" class="p-4">About Me</router-link>
+    <router-link to="/" class="p-4">My Timeline</router-link>
+  </nav>
   <router-view />
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<style lang="scss" scoped>
+#nav > a {
+  text-decoration: underline transparent;
+  transition: text-decoration-color 300ms;
 
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+  &:hover {
+    text-decoration-color: black;
   }
 }
 </style>
