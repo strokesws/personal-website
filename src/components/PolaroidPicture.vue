@@ -1,7 +1,11 @@
 <template>
   <div class="polaroid">
     <div class="polaroid__picture"></div>
-    <div class="polaroid__caption">Hello!</div>
+    <div
+      class="polaroid__caption font-gochi text-6xl text-gray-800 text-center"
+    >
+      Hello! That's me!!
+    </div>
   </div>
 </template>
 
