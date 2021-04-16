@@ -20,7 +20,10 @@
       </div>
     </div>
     <div class="col-span-4 flex flex-col justify-center">
-      <PolaroidPicture></PolaroidPicture>
+      <PolaroidPicture
+        :picture="polaroid.picture"
+        :caption="polaroid.caption"
+      ></PolaroidPicture>
     </div>
   </div>
 </template>
@@ -32,5 +35,15 @@
   export default defineComponent({
     name: 'Home',
     components: { PolaroidPicture },
+
+    setup() {
+      const polaroid = {
+        picture:
+          'https://i.pinimg.com/originals/0f/84/d4/0f84d48b10a9d8867b287086cd62bf00.jpg',
+        caption: "Hello! That's me!!",
+      };
+
+      return { polaroid };
+    },
   });
 </script>

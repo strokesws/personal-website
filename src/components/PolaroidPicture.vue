@@ -1,10 +1,10 @@
 <template>
   <div class="polaroid">
-    <div class="polaroid__picture"></div>
+    <div class="polaroid__picture" :style="style"></div>
     <div
       class="polaroid__caption font-gochi text-6xl text-gray-800 text-center"
     >
-      Hello! That's me!!
+      {{ caption }}
     </div>
   </div>
 </template>
@@ -12,7 +12,21 @@
 <script lang="ts">
   import { defineComponent } from 'vue';
 
-  export default defineComponent({});
+  export default defineComponent({
+    props: {
+      picture: {
+        type: String,
+        required: true,
+      },
+      caption: String,
+    },
+
+    setup(props) {
+      const style = { backgroundImage: `url(${props.picture})` };
+
+      return { style };
+    },
+  });
 </script>
 
 <style lang="scss">
@@ -30,7 +44,6 @@
 
     &__picture {
       aspect-ratio: 1 / 1;
-      background-image: url('https://i.pinimg.com/originals/0f/84/d4/0f84d48b10a9d8867b287086cd62bf00.jpg');
       background-size: cover;
       background-position: center;
       box-shadow: 0px 0px 9px 3px rgba(0, 0, 0, 0.24) inset;
