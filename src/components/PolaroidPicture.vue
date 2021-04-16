@@ -15,14 +15,21 @@
   .polaroid {
     padding: 5%;
     aspect-ratio: 3.5 / 4.2;
-    background: #fff;
     box-shadow: 0 0.2rem 1.2rem rgba(0, 0, 0, 0.2);
+
+    background: radial-gradient(#f5f5f5 15%, transparent 16%) 0 0,
+      radial-gradient(#f5f5f5 15%, transparent 16%) 8px 8px,
+      radial-gradient(rgba(236, 236, 236, 0.1) 15%, transparent 20%) 0 1px,
+      radial-gradient(rgba(236, 236, 236, 0.1) 15%, transparent 20%) 8px 9px;
+    background-color: #eeeeee;
+    background-size: 10px 10px;
 
     &__picture {
       aspect-ratio: 1 / 1;
       background-image: url('https://i.pinimg.com/originals/0f/84/d4/0f84d48b10a9d8867b287086cd62bf00.jpg');
       background-size: cover;
       background-position: center;
+      box-shadow: 0px 0px 9px 3px rgba(0, 0, 0, 0.24) inset;
     }
 
     &__caption {
@@ -43,7 +50,7 @@
       position: relative;
       width: 100%;
       padding-top: 100%;
-      margin-top: -125%;
+      margin-top: -128%;
     }
 
     .polaroid__caption {
