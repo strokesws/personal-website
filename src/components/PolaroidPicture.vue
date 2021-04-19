@@ -1,6 +1,8 @@
 <template>
   <div class="polaroid flex flex-col justify-between">
-    <div class="polaroid__picture" :style="style"></div>
+    <div class="polaroid__picture" :style="style">
+      <img :src="pictureUrl" :alt="altText" class="polaroid__picture" />
+    </div>
     <div class="polaroid__caption flex justify-center items-center">
       <p
         class="font-gochi text-gray-800 text-center text-4xl sm:text-2xl md:text-3xl lg:text-5xl 2xl:text-6xl"
@@ -16,15 +18,16 @@
 
   export default defineComponent({
     props: {
-      picture: {
+      pictureUrl: {
         type: String,
         required: true,
       },
       caption: String,
+      altText: String,
     },
 
     setup(props) {
-      const style = { backgroundImage: `url(${props.picture})` };
+      const style = { backgroundImage: `url(${props.pictureUrl})` };
 
       return { style };
     },
@@ -45,10 +48,19 @@
     background-size: 10px 10px;
 
     &__picture {
+      position: relative;
       aspect-ratio: 1 / 1;
-      background-size: cover;
-      background-position: center;
-      box-shadow: 0px 0px 9px 3px rgba(0, 0, 0, 0.24) inset;
+
+      &::before {
+        z-index: 1;
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        box-shadow: 0px 0px 9px 3px rgba(0, 0, 0, 0.24) inset;
+      }
     }
 
     &__caption {
@@ -56,28 +68,42 @@
     }
   }
 
-  @supports not (aspect-ratio: 3.5 / 4.2) {
-    .polaroid {
-      position: relative;
-      width: 100%;
-      padding-top: 120%;
+  @supports (aspect-ratio: 1 / 1) {
+    .polaroid__picture {
+      background-image: none !important;
+
+      > img {
+        height: 100%;
+        object-fit: cover;
+      }
     }
   }
 
   @supports not (aspect-ratio: 1 / 1) {
-    .polaroid__picture {
+    .polaroid {
       position: relative;
       width: 100%;
-      padding-top: 100%;
-      margin-top: -128%;
-    }
+      padding-top: 120%;
 
-    .polaroid__caption {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: 24%;
+      &__picture {
+        width: 100%;
+        padding-top: 100%;
+        margin-top: -128%;
+        background-size: cover;
+        background-position: center;
+
+        > img {
+          display: none;
+        }
+      }
+
+      &__caption {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 24%;
+      }
     }
   }
 </style>
