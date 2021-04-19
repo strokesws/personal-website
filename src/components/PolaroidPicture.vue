@@ -1,10 +1,12 @@
 <template>
   <div class="polaroid">
     <div class="polaroid__picture" :style="style"></div>
-    <div
-      class="polaroid__caption font-gochi text-6xl text-gray-800 text-center"
-    >
-      {{ caption }}
+    <div class="polaroid__caption flex justify-center items-center">
+      <p
+        class="font-gochi text-gray-800 text-center text-4xl sm:text-2xl md:text-3xl lg:text-5xl 2xl:text-6xl"
+      >
+        {{ caption }}
+      </p>
     </div>
   </div>
 </template>
@@ -75,6 +77,7 @@
       bottom: 0;
       left: 0;
       right: 0;
+      height: 24%;
     }
   }
 </style>
