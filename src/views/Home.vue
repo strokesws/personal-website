@@ -1,25 +1,33 @@
 <template>
-  <div class="grid grid-cols-12 p-4">
+  <div class="grid grid-cols-12 p-4 flex-grow">
     <div
-      class="col-start-2 col-span-6 flex flex-col justify-center text-gray-800"
+      class="col-span-12 sm:col-span-7 sm:col-start-2 md:col-start-2 md:col-span-6 mb-3 sm:mb-0 flex flex-col justify-center text-gray-800"
     >
-      <h1 class="text-6xl px-4">Matheus Sartoretto</h1>
-      <h2 class="text-4xl px-4">Front-end Developer</h2>
-      <div class="mt-8">
-        <!-- TODO: transform links into icons with fontawesome -->
-        <a class="px-4" href="https://github.com/strokesws" target="_blank"
-          ><i class="fab fa-github-alt fa-3x"></i
+      <h1 class="text-4xl sm:text-5xl md:text-6xl sm:px-4">
+        Matheus Sartoretto
+      </h1>
+      <h2 class="text-xl sm:text-3xl md:text-4xl sm:px-4">
+        Front-end Developer
+      </h2>
+      <div class="mt-3 sm:mt-8">
+        <a
+          class="pr-3 sm:px-4"
+          href="https://github.com/strokesws"
+          target="_blank"
+          ><i class="fab fa-github-alt text-xl sm:text-5xl"></i
         ></a>
         <a
-          class="px-4"
+          class="pl-3 sm:px-4"
           href="https://linkedin.com/in/matheussartoretto/"
           target="_blank"
         >
-          <i class="fab fa-linkedin-in fa-3x"></i>
+          <i class="fab fa-linkedin-in text-xl sm:text-5xl"></i>
         </a>
       </div>
     </div>
-    <div class="col-span-4 flex flex-col justify-center">
+    <div
+      class="col-span-12 sm:col-span-3 md:col-span-4 flex flex-col justify-center"
+    >
       <PolaroidPicture
         :picture="polaroid.picture"
         :caption="polaroid.caption"
