@@ -29,7 +29,7 @@
       class="col-span-12 sm:col-span-3 md:col-span-4 flex flex-col justify-center"
     >
       <PolaroidPicture
-        :picture="polaroid.picture"
+        :pictureUrl="polaroid.picture"
         :caption="polaroid.caption"
       ></PolaroidPicture>
     </div>
