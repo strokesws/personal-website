@@ -1,5 +1,5 @@
 <template>
-  <div class="polaroid">
+  <div class="polaroid flex flex-col justify-between">
     <div class="polaroid__picture" :style="style"></div>
     <div class="polaroid__caption flex justify-center items-center">
       <p
@@ -52,7 +52,7 @@
     }
 
     &__caption {
-      padding: 1rem;
+      margin-top: 1rem;
     }
   }
 
