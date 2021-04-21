@@ -18,4 +18,15 @@ describe('PolaroidPicture.vue', () => {
     const imgAlt = wrapper.find('img').attributes().alt;
     expect(imgAlt).toBe(altText);
   });
+
+  it('renders the img with caption prop value', async () => {
+    const pictureUrl = 'a';
+    const caption = 'b';
+    const wrapper = mount(PolaroidPicture, {
+      props: { pictureUrl, caption },
+    });
+
+    const imgCaption = wrapper.find('.polaroid__caption > p').text();
+    expect(imgCaption).toBe(caption);
+  });
 });
