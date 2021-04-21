@@ -1,6 +1,8 @@
 <template>
-  <HeaderMenu />
-  <router-view />
+  <div class="h-screen flex flex-col">
+    <HeaderMenu />
+    <router-view />
+  </div>
 </template>
 
 <script lang="ts">
