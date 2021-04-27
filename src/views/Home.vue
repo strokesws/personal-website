@@ -1,7 +1,7 @@
 <template>
-  <div class="grid grid-cols-12 p-4 flex-grow">
+  <div class="container mx-auto grid grid-cols-12 p-4 flex-grow">
     <div
-      class="col-span-12 sm:col-span-7 sm:col-start-2 md:col-start-2 md:col-span-6 mb-3 sm:mb-0 flex flex-col justify-center text-gray-800"
+      class="col-span-12 sm:col-span-9 md:col-span-8 mb-3 sm:mb-0 flex flex-col justify-center text-gray-800"
     >
       <h1 class="text-4xl sm:text-5xl md:text-6xl sm:px-4">
         Matheus Sartoretto
