@@ -60,7 +60,7 @@
         left: 0;
         right: 0;
         box-shadow: 0px 0px 9px 3px rgba(0, 0, 0, 0.24) inset;
-        background: rgba(255, 230, 0, 0.11);
+        background: rgba(253, 230, 138, 0.11);
       }
     }
 

@@ -1,6 +1,6 @@
 <template>
   <div class="container mx-auto p-4">
-    <h1 class="sm:text-5xl md:text-6xl mb-4">My Timeline</h1>
+    <h1 class="text-yellow-500 sm:text-5xl md:text-6xl mb-4">My Timeline</h1>
     <div class="timeline p-4">
       <div
         class="timeline-item flex flex-row-reverse"
@@ -28,9 +28,10 @@
         </div>
 
         <div class="timeline-item__divider flex flex-col justify-center p-4">
-          <div class="timeline-item__dot rounded-full shadow-md p-2">
-            <i class="fab fa-github-alt text-xl sm:text-5xl"></i>
-          </div>
+          <span class="timeline-item__dot fa-stack fa-2x">
+            <i class="fas fa-circle fa-stack-2x"></i>
+            <i class="fab fa-github-alt fa-stack-1x"></i>
+          </span>
         </div>
       </div>
     </div>
@@ -53,14 +54,8 @@
   .timeline {
     &-item {
       &__info {
-        max-width: calc(50% - 46.5px);
+        max-width: calc(50% - 56px);
         min-height: 100px;
-
-        &-title {
-        }
-
-        &-text {
-        }
       }
 
       &__divider {
@@ -69,19 +64,19 @@
         &::before {
           content: '';
           position: absolute;
-          top: 0;
+          top: 1px;
           left: calc(50% - 1px);
           right: auto;
-          bottom: 0;
+          bottom: 1px;
           background: rgba(0, 0, 0, 0.12);
           height: 100%;
           width: 2px;
         }
       }
 
-      &__dot {
-        z-index: 1;
-        background: burlywood;
+      &__dot > .fa-circle {
+        @apply text-green-300;
+        text-shadow: 0px 5px 10px rgba(0, 0, 0, 0.22);
       }
 
       &:first-child {

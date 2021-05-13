@@ -3,10 +3,10 @@
     <div
       class="col-span-12 sm:col-span-9 md:col-span-8 mb-3 sm:mb-0 flex flex-col justify-center text-gray-800"
     >
-      <h1 class="text-4xl sm:text-5xl md:text-6xl sm:px-4">
+      <h1 class="text-yellow-500 text-4xl sm:text-5xl md:text-6xl sm:px-4">
         Matheus Sartoretto
       </h1>
-      <h2 class="text-xl sm:text-3xl md:text-4xl sm:px-4">
+      <h2 class="text-green-300 text-xl sm:text-3xl md:text-4xl sm:px-4">
         Front-end Developer
       </h2>
       <div class="mt-3 sm:mt-8">
