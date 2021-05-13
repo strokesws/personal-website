@@ -1,49 +1,32 @@
 <template>
   <div class="container mx-auto p-4">
     <h1 class="text-yellow-500 sm:text-5xl md:text-6xl mb-4">My Timeline</h1>
-    <div class="timeline p-4">
-      <div
-        class="timeline-item flex flex-row-reverse"
+    <Timeline>
+      <TimelineItem
         v-for="(item, index) in items"
         :key="index"
-      >
-        <div
-          class="timeline-item__info flex-grow bg-gray-50 rounded shadow-xl my-4"
-        >
-          <h2 class="timeline-item__info-title p-4 text-2xl">My title</h2>
-          <p class="timeline-item__info-text p-4 text-justify">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris
-            volutpat enim ut tempor sodales. Donec turpis nisl, sollicitudin
-            iaculis volutpat nec, venenatis a dolor. Mauris porttitor posuere
-            consequat. Morbi venenatis tortor nec molestie tincidunt.
-            Suspendisse fringilla nisi ac sapien bibendum laoreet. Curabitur a
-            semper est, eget ullamcorper diam. Proin vel orci eget magna congue
-            ullamcorper sit amet vitae felis. Lorem ipsum dolor sit amet,
-            consectetur adipiscing elit. Donec ligula orci, molestie interdum
-            mollis et, consectetur sit amet ligula. Cras sed nunc orci. Cras
-            nisi dui, mollis in tincidunt a, blandit sed velit. Morbi est risus,
-            lacinia eu pharetra ut, scelerisque ac nulla. Integer mi diam,
-            facilisis et urna nec, pretium finibus quam.
-          </p>
-        </div>
-
-        <div class="timeline-item__divider flex flex-col justify-center p-4">
-          <span class="timeline-item__dot fa-stack fa-2x">
-            <i class="fas fa-circle fa-stack-2x"></i>
-            <i class="fab fa-github-alt fa-stack-1x"></i>
-          </span>
-        </div>
-      </div>
-    </div>
+        :title="item.title"
+        :description="item.description"
+        :icon="item.icon"
+      ></TimelineItem>
+    </Timeline>
   </div>
 </template>
 
 <script lang="ts">
   import { defineComponent } from 'vue';
+  import Timeline from '@/components/Timeline/Timeline.vue';
+  import TimelineItem from '@/components/Timeline/TimelineItem.vue';
 
   export default defineComponent({
+    components: { Timeline, TimelineItem },
+
     setup() {
-      const items = [{}, {}, {}, {}];
+      const items = [
+        { title: 'Foo test', description: 'lol?', icon: 'fa-github-alt' },
+        { title: 'Foo test', description: 'lol?', icon: 'fa-github-alt' },
+        { title: 'Foo test', description: 'lol?', icon: 'fa-github-alt' },
+      ];
 
       return { items };
     },
