@@ -1,5 +1,5 @@
 <template>
-  <div class="h-screen flex flex-col">
+  <div class="h-screen overflow-y-auto flex flex-col bg-gray-100">
     <HeaderMenu />
     <router-view />
   </div>
