@@ -47,8 +47,7 @@
 
     setup() {
       const polaroid = {
-        picture:
-          'https://i.pinimg.com/originals/0f/84/d4/0f84d48b10a9d8867b287086cd62bf00.jpg',
+        picture: 'https://avatars.githubusercontent.com/u/5131379?v=4',
         caption: "Hello! That's me!!",
       };
 
