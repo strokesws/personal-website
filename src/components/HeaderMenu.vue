@@ -37,14 +37,3 @@
     },
   });
 </script>
-
-<style lang="scss" scoped>
-  #nav > a {
-    text-decoration: underline transparent;
-    transition: text-decoration-color 300ms;
-
-    &:hover {
-      text-decoration-color: black;
-    }
-  }
-</style>

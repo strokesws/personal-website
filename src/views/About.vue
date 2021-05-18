@@ -1,6 +1,8 @@
 <template>
   <div class="container mx-auto p-4">
-    <h1 class="text-4xl sm:text-5xl md:text-6xl mb-4">About me</h1>
+    <h1 class="text-yellow-500 text-4xl sm:text-5xl md:text-6xl mb-4">
+      About me
+    </h1>
     <p class="mb-3">
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed congue non
       velit nec euismod. Donec a mi sed dolor commodo consequat ac vitae est. Ut

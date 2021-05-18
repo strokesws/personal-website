@@ -1,5 +1,5 @@
 <template>
-  <div class="h-screen flex flex-col">
+  <div class="h-screen overflow-y-auto flex flex-col bg-gray-100">
     <HeaderMenu />
     <router-view />
   </div>
@@ -16,13 +16,14 @@
   });
 </script>
 
-<style lang="scss" scoped>
-  #nav > a {
+<style lang="scss">
+  a {
     text-decoration: underline transparent;
-    transition: text-decoration-color 300ms;
+    transition: color 300ms;
+    @apply text-red-400;
 
     &:hover {
-      text-decoration-color: black;
+      @apply text-red-500;
     }
   }
 </style>
