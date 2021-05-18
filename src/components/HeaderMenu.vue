@@ -21,14 +21,12 @@
       let menuItems: IHeaderMenuItem[] = reactive([]);
 
       const buildMenuItems = (): void => {
-        menuItems = router.getRoutes().map(
-          (route): IHeaderMenuItem => {
-            const title = route.name ? route.name.toString() : '';
-            const linkTo = route.path ? route.path.toString() : '';
+        menuItems = router.getRoutes().map((route): IHeaderMenuItem => {
+          const title = route.name ? route.name.toString() : '';
+          const linkTo = route.path ? route.path.toString() : '';
 
-            return { title, linkTo };
-          },
-        );
+          return { title, linkTo };
+        });
       };
 
       buildMenuItems();
