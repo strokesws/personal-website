@@ -1,7 +1,9 @@
 <template>
   <div class="h-screen overflow-y-auto flex flex-col bg-gray-100">
     <HeaderMenu />
-    <router-view />
+    <transition name="fade" mode="out-in">
+      <router-view />
+    </transition>
   </div>
 </template>
 
@@ -24,6 +26,18 @@
 
     &:hover {
       @apply text-red-500;
+    }
+  }
+
+  .fade {
+    &-enter-active,
+    &-leave-active {
+      transition: opacity 0.3s ease;
+    }
+
+    &-enter-from,
+    &-leave-to {
+      opacity: 0;
     }
   }
 </style>
