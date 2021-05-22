@@ -3,12 +3,11 @@ export interface IHeaderMenuItem {
   linkTo: string;
 }
 
-export interface IStoreState {
+export interface IAboutMe {
   name: string;
   role: string;
   picture: string;
   text: string;
-  experienceList: IExperience[];
 }
 
 export interface IExperience {
