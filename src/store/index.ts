@@ -40,6 +40,8 @@ const store = createStore<State>({
     addExperience: (state, data: IExperience) => {
       state.experienceList.push(data);
     },
+
+    clearExperienceList: (state) => (state.experienceList = []),
   },
 
   actions: {
@@ -62,6 +64,8 @@ const store = createStore<State>({
      * Load Experience data from database into store state
      */
     loadExperiences: async ({ commit }) => {
+      commit('clearExperienceList');
+
       const q = query(collection(db, 'experience'));
       const querySnapshot = await getDocs(q);
 
