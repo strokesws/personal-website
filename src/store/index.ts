@@ -1,9 +1,9 @@
 import { InjectionKey } from 'vue';
 import { createStore, useStore as baseUseStore, Store } from 'vuex';
-import { getDoc, doc } from 'firebase/firestore';
+import { getDoc, doc, getDocs, query, collection } from 'firebase/firestore';
 
 import { db } from '@/firebase';
-import { IAboutMe, State } from '@/types';
+import { IAboutMe, IExperience, State } from '@/types';
 
 const key: InjectionKey<Store<State>> = Symbol();
 
@@ -25,6 +25,8 @@ const store = createStore<State>({
         text: state.text,
       };
     },
+
+    getExperienceList: (state): IExperience[] => state.experienceList,
   },
 
   mutations: {
@@ -33,6 +35,10 @@ const store = createStore<State>({
       state.role = data.role;
       state.picture = data.picture;
       state.text = data.text;
+    },
+
+    addExperience: (state, data: IExperience) => {
+      state.experienceList.push(data);
     },
   },
 
@@ -50,6 +56,20 @@ const store = createStore<State>({
       } else {
         console.error('About me document not found');
       }
+    },
+
+    /**
+     * Load Experience data from database into store state
+     */
+    loadExperiences: async ({ commit }) => {
+      const q = query(collection(db, 'experience'));
+      const querySnapshot = await getDocs(q);
+
+      querySnapshot.forEach((doc) => {
+        // doc.data() is never undefined for query doc snapshots
+        const data = doc.data() as IExperience;
+        commit('addExperience', data);
+      });
     },
   },
 
