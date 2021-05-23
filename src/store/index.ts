@@ -1,6 +1,13 @@
 import { InjectionKey } from 'vue';
 import { createStore, useStore as baseUseStore, Store } from 'vuex';
-import { getDoc, doc, getDocs, query, collection } from 'firebase/firestore';
+import {
+  getDoc,
+  doc,
+  getDocs,
+  query,
+  collection,
+  orderBy,
+} from 'firebase/firestore';
 
 import { db } from '@/firebase';
 import { IAboutMe, IExperience, State } from '@/types';
@@ -66,7 +73,7 @@ const store = createStore<State>({
     loadExperiences: async ({ commit }) => {
       commit('clearExperienceList');
 
-      const q = query(collection(db, 'experience'));
+      const q = query(collection(db, 'experience'), orderBy('start', 'desc'));
       const querySnapshot = await getDocs(q);
 
       querySnapshot.forEach((doc) => {
