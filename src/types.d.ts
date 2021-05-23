@@ -15,3 +15,7 @@ export interface IExperience {
   icon: string;
   description: string;
 }
+
+export interface State extends IAboutMe {
+  experienceList: IExperience[];
+}

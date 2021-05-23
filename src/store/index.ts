@@ -3,11 +3,7 @@ import { createStore, useStore as baseUseStore, Store } from 'vuex';
 import { getDoc, doc } from 'firebase/firestore';
 
 import { db } from '@/firebase';
-import { IAboutMe, IExperience } from '@/types';
-
-interface State extends IAboutMe {
-  experienceList: IExperience[];
-}
+import { IAboutMe, State } from '@/types';
 
 const key: InjectionKey<Store<State>> = Symbol();
 
@@ -38,7 +34,7 @@ const store = createStore<State>({
       const docSnap = await getDoc(docRef);
 
       if (docSnap.exists()) {
-        const aboutMe = docSnap.data as IAboutMe;
+        const aboutMe = docSnap.data;
         commit('setAboutMe', aboutMe);
       } else {
         console.error('About me document not found');
@@ -51,4 +47,4 @@ const store = createStore<State>({
 
 const useStore = (): Store<State> => baseUseStore(key);
 
-export { State, key, store, useStore };
+export { key, store, useStore };
