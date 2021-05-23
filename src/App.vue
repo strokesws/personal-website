@@ -8,7 +8,7 @@
 </template>
 
 <script lang="ts">
-  import { defineComponent, onMounted } from 'vue';
+  import { defineComponent } from 'vue';
   import { useStore } from '@/store';
   import HeaderMenu from '@/components/HeaderMenu.vue';
 
@@ -19,10 +19,7 @@
 
     setup() {
       const store = useStore();
-
-      onMounted(() => {
-        store.dispatch('loadAboutMe');
-      });
+      store.dispatch('loadAboutMe');
     },
   });
 </script>

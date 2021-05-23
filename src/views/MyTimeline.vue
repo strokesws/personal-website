@@ -14,7 +14,7 @@
 </template>
 
 <script lang="ts">
-  import { computed, defineComponent, onMounted } from 'vue';
+  import { computed, defineComponent } from 'vue';
   import { useStore } from '@/store';
 
   import Timeline from '@/components/Timeline/Timeline.vue';
@@ -25,12 +25,9 @@
 
     setup() {
       const store = useStore();
+      store.dispatch('loadExperiences');
 
       const items = computed(() => store.getters.getExperienceList);
-
-      onMounted(() => {
-        store.dispatch('loadExperiences');
-      });
 
       return { items };
     },
