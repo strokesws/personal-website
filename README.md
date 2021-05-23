@@ -9,13 +9,13 @@ npm install
 ### Build Docker Image
 
 ```sh
-docker build -t personal-website .
+docker build -t personal-website-vue .
 ```
 
 ### Run Docker Container
 
 ```sh
-docker run -it -p 8080:8080 personal-website
+docker run -it --name personal-website-vue -p 8081:8080 -v ${PWD}/src:/app/src/ personal-website-vue
 ```
 
 ## Project setup (Without Docker)

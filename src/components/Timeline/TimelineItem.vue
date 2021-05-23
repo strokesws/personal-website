@@ -4,15 +4,16 @@
       class="timeline-item__info flex-grow bg-gray-50 rounded shadow-xl my-4"
     >
       <h2 class="timeline-item__info-title p-4 text-2xl">{{ title }}</h2>
-      <p class="timeline-item__info-text p-4 text-justify">
-        {{ description }}
-      </p>
+      <p
+        class="timeline-item__info-text p-4 text-justify"
+        v-html="description"
+      ></p>
     </div>
 
     <div class="timeline-item__divider flex flex-col justify-center p-4">
       <span class="timeline-item__dot fa-stack fa-2x">
         <i class="fas fa-circle fa-stack-2x"></i>
-        <i class="fab fa-stack-1x" :class="icon"></i>
+        <i class="fa-stack-1x" :class="icon"></i>
       </span>
     </div>
   </div>

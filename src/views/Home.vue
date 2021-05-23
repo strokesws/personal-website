@@ -13,10 +13,10 @@
       "
     >
       <h1 class="text-yellow-500 text-4xl sm:text-5xl md:text-6xl sm:px-4">
-        Matheus Sartoretto
+        {{ aboutMe.name }}
       </h1>
       <h2 class="text-green-300 text-xl sm:text-3xl md:text-4xl sm:px-4">
-        Front-end Developer
+        {{ aboutMe.role }}
       </h2>
       <div class="mt-3 sm:mt-8">
         <a
@@ -45,15 +45,17 @@
     >
       <PolaroidPicture
         class="transform rotate-6"
-        :pictureUrl="polaroid.picture"
-        :caption="polaroid.caption"
+        caption="Hello! That's me!!"
+        :pictureUrl="aboutMe.picture"
       ></PolaroidPicture>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-  import { defineComponent } from 'vue';
+  import { computed, defineComponent } from 'vue';
+  import { useStore } from '@/store';
+  import { IAboutMe } from '@/types';
   import PolaroidPicture from '@/components/PolaroidPicture.vue';
 
   export default defineComponent({
@@ -61,12 +63,10 @@
     components: { PolaroidPicture },
 
     setup() {
-      const polaroid = {
-        picture: 'https://avatars.githubusercontent.com/u/5131379?v=4',
-        caption: "Hello! That's me!!",
-      };
+      const store = useStore();
+      const aboutMe = computed(() => store.getters.getAboutMe as IAboutMe);
 
-      return { polaroid };
+      return { aboutMe };
     },
   });
 </script>
