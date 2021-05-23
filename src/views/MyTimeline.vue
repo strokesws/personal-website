@@ -14,7 +14,9 @@
 </template>
 
 <script lang="ts">
-  import { defineComponent } from 'vue';
+  import { computed, defineComponent, onMounted } from 'vue';
+  import { useStore } from '@/store';
+
   import Timeline from '@/components/Timeline/Timeline.vue';
   import TimelineItem from '@/components/Timeline/TimelineItem.vue';
 
@@ -22,11 +24,13 @@
     components: { Timeline, TimelineItem },
 
     setup() {
-      const items = [
-        { title: 'Foo test', description: 'lol?', icon: 'fa-github-alt' },
-        { title: 'Foo test', description: 'lol?', icon: 'fa-github-alt' },
-        { title: 'Foo test', description: 'lol?', icon: 'fa-github-alt' },
-      ];
+      const store = useStore();
+
+      const items = computed(() => store.getters.getExperienceList);
+
+      onMounted(() => {
+        store.dispatch('loadExperiences');
+      });
 
       return { items };
     },
