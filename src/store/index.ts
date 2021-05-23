@@ -16,6 +16,17 @@ const store = createStore<State>({
     experienceList: [],
   },
 
+  getters: {
+    getAboutMe: (state): IAboutMe => {
+      return {
+        name: state.name,
+        role: state.role,
+        picture: state.picture,
+        text: state.text,
+      };
+    },
+  },
+
   mutations: {
     setAboutMe: (state, data: IAboutMe) => {
       state.name = data.name;
@@ -34,7 +45,7 @@ const store = createStore<State>({
       const docSnap = await getDoc(docRef);
 
       if (docSnap.exists()) {
-        const aboutMe = docSnap.data;
+        const aboutMe = docSnap.data();
         commit('setAboutMe', aboutMe);
       } else {
         console.error('About me document not found');
