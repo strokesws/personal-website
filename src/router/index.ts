@@ -1,9 +1,9 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
 
 const routeOptions = [
-  { path: '/', name: 'Home' },
-  { path: '/about', name: 'About' },
-  { path: '/my-timeline', name: 'My Timeline' },
+  { path: '/', name: 'Home View' },
+  { path: '/about', name: 'About View' },
+  { path: '/my-timeline', name: 'My Timeline View' },
 ];
 
 const routes: Array<RouteRecordRaw> = routeOptions.map((route) => {
@@ -11,7 +11,7 @@ const routes: Array<RouteRecordRaw> = routeOptions.map((route) => {
     ...route,
     component: () =>
       import(
-        /* webpackChunkName: "[request]" */ `@/views/${route.name.replace(
+        /* webpackChunkName: "[request]" */ `@/views/${route.name.replaceAll(
           ' ',
           '',
         )}.vue`

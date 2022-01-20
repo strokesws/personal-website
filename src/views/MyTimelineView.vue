@@ -1,7 +1,7 @@
 <template>
   <div class="container mx-auto p-4">
     <h1 class="text-yellow-500 sm:text-5xl md:text-6xl mb-4">My Timeline</h1>
-    <Timeline>
+    <TimelineContainer>
       <TimelineItem
         v-for="(item, index) in items"
         :key="index"
@@ -9,7 +9,7 @@
         :description="item.description"
         :icon="item.icon"
       ></TimelineItem>
-    </Timeline>
+    </TimelineContainer>
   </div>
 </template>
 
@@ -17,11 +17,12 @@
   import { computed, defineComponent } from 'vue';
   import { useStore } from '@/store';
 
-  import Timeline from '@/components/Timeline/Timeline.vue';
+  import TimelineContainer from '@/components/Timeline/TimelineContainer.vue';
   import TimelineItem from '@/components/Timeline/TimelineItem.vue';
 
   export default defineComponent({
-    components: { Timeline, TimelineItem },
+    name: 'MyTimelineView',
+    components: { TimelineContainer, TimelineItem },
 
     setup() {
       const store = useStore();

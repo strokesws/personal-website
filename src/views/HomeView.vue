@@ -1,16 +1,7 @@
 <template>
   <div class="container mx-auto grid grid-cols-12 p-4 flex-grow">
     <div
-      class="
-        col-span-12
-        sm:col-span-9
-        md:col-span-8
-        mb-3
-        sm:mb-0
-        flex flex-col
-        justify-center
-        text-gray-800
-      "
+      class="col-span-12 sm:col-span-9 md:col-span-8 mb-3 sm:mb-0 flex flex-col justify-center text-gray-800"
     >
       <h1 class="text-yellow-500 text-4xl sm:text-5xl md:text-6xl sm:px-4">
         {{ aboutMe.name }}
@@ -35,13 +26,7 @@
       </div>
     </div>
     <div
-      class="
-        col-span-12
-        sm:col-span-3
-        md:col-span-4
-        flex flex-col
-        justify-center
-      "
+      class="col-span-12 sm:col-span-3 md:col-span-4 flex flex-col justify-center"
     >
       <PolaroidPicture
         class="transform rotate-6"
@@ -59,7 +44,7 @@
   import PolaroidPicture from '@/components/PolaroidPicture.vue';
 
   export default defineComponent({
-    name: 'Home',
+    name: 'HomeView',
     components: { PolaroidPicture },
 
     setup() {

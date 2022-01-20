@@ -57,7 +57,7 @@
   import PolaroidPicture from '@/components/PolaroidPicture.vue';
 
   export default defineComponent({
-    name: 'About',
+    name: 'AboutView',
     components: { PolaroidPicture },
 
     setup() {
