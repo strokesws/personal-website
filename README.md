@@ -1,49 +1,15 @@
 # personal-website
 
-```sh
-npm install
-```
+## Dev Usage
 
-## Project setup (With Docker)
+1. Clone the repository.
+2. Run `npm install` inside the cloned repository.
+3. Run `npm run serve` to run webpack-dev-server.
+4. Open browser on `http://localhost:8080`.
 
-### Build Docker Image
+## Docker Usage
 
-```sh
-docker build -t personal-website-vue .
-```
-
-### Run Docker Container
-
-```sh
-docker run -it --name personal-website-vue -p 8081:8080 -v ${PWD}/src:/app/src/ personal-website-vue
-```
-
-## Project setup (Without Docker)
-
-### Compiles and hot-reloads for development
-
-```sh
-npm run serve
-```
-
-### Compiles and minifies for production
-
-```sh
-npm run build
-```
-
-### Run your unit tests
-
-```sh
-npm run test:unit
-```
-
-### Lints and fixes files
-
-```sh
-npm run lint
-```
-
-## Customize configuration
-
-See [Configuration Reference](https://cli.vuejs.org/config/).
+1. Clone the repository.
+2. Run `docker build -t personal-website .` inside the cloned repository.
+3. Run `docker run --rm -p 8080:80 personal-website`.
+4. Open browser on `http://localhost:8080`.
